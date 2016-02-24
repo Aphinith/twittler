@@ -3,25 +3,52 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="Main.css">
   </head>
   <body>
-    <script>
 
+    <script>
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+        //create a header tag
+        var $header = $('<h1></h1>');
+        //create header tag text
+        $header.text('Welcome to Twittler');
+        //insert header tag and text into body
+        $header.prependTo($body);
+        //create section for new tweets
+        var $section= $('<section></section>');
+        //insert section into body after header
+        $section.insertAfter($header);
+        
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+          //create counter to keep newer tweets posting
+          var counter = 0;
+          //create tweet using jQuery and prepend to body every 3 seconds
+          setInterval(function() {
+            //create var to create new <div> tag for html file
+            var $tweetInDiv = $('<div class="tweets"></div>');
+            //create a date stamp
+            var time = new Date();
+            //create the streaming tweets
+            $tweetInDiv.text('@' + streams.home[counter].user + ': ' + streams.home[counter].message + ' ' + time);
+            //insert tweets in the webpage 
+            $tweetInDiv.insertAfter($header).prependTo($section);
+            //
+            counter++;
+          }, 2000);
 
+        //   var index = streams.home.length - 1;
+        //   while(index >= 0){
+        //   var tweet = streams.home[index];
+        //   var $tweetInDiv = $('<div></div>');
+        //   var time = new Date();
+        //   $tweetInDiv.text('@' + tweet.user + ': ' + tweet.message + ' ' + time.toDateString());
+        //   $tweetInDiv.appendTo($body);
+        //   index -= 1;
+        // }
       });
-
+      
     </script>
   </body>
 </html>

@@ -1,0 +1,13 @@
+body {
+	background-color: #93E4FF;
+}
+
+h1 {
+	text-align: center;
+	padding-top: 10px;
+	border: 5px dotted black;
+}
+
+section {
+	padding-left: 15px;
+}
