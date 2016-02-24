@@ -9,30 +9,29 @@
 
     <section Class="Users">
       <ul Class="Users">
+        <li><a href="index.html">Home</a></li>
         <li>Follow: <a href="bgando.html">@bgando</a></li>
         <li>Follow: <a href="mo.html">@mo</a></li>
-        <li>Follow: <a href="albreyb.html">@albreyb</a></li>
         <li>Follow: <a href="ClimbsRocks.html">@ClimbsRocks</a></li>
       </ul>
 
     </section>
 
-    <script>
+<script>
       $(document).ready(function(){
         var $body = $('body');
         //create a header tag
         var $header = $('<h1></h1>');
         //create header tag text
-        $header.text('Welcome to Twittler');
+        $header.text('You\'ve entered albreyb\'s World!');
         //insert header tag and text into body
         $header.prependTo($body);
         //create section for new tweets
         var $section= $('<section Class="tweets"></section>');
         //insert section into body after header
         $section.insertAfter($header);
-        
 
-          //create counter to keep newer tweets posting
+      //create counter to keep newer tweets posting
           var counter = 0;
           //create tweet using jQuery and prepend to body every 3 seconds
           setInterval(function() {
@@ -41,16 +40,16 @@
             //create a date stamp
             var time = new Date();
             //create the streaming tweets
-            $tweetInDiv.text('@' + streams.home[counter].user + ': ' + streams.home[counter].message + ' ' + time);
+            $tweetInDiv.text('@albreyb' + ': ' + streams.users.albreyb[counter].message + ' ' + time);
             //insert tweets in the webpage 
             $tweetInDiv.insertAfter($header).prependTo($section);
             //keep counter going to create new tweets
             counter++;
-          }, 2000);
+          }, 2000);        
         
       });
       
     </script>
 
   </body>
-</html>
+  </html>
